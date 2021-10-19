@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var diceImg: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        diceImg = findViewById(R.id.diceImage)
         val rollBtn: Button = findViewById(R.id.roll_button)
         rollBtn.setOnClickListener(View.OnClickListener {
             diceRoll()
@@ -19,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun diceRoll() {
-        val diceImg: ImageView = findViewById(R.id.diceImage)
         val diceDrawable = when (Random.nextInt(6) + 1) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
